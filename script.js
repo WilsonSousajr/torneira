@@ -21,7 +21,11 @@ function analisarRespostas(respostas) {
         'f': 'Lázaro',
         'g': 'Sill',
         'h': 'João Luz',
-        'i': 'Henrique'
+        'i': 'Henrique',
+        'j': 'Davi Brito',
+        'k': 'Gabriella K',
+        'l': 'HotWillis',
+        'm': 'Valquíria'
     };
 
     let escolhidos = new Set();
