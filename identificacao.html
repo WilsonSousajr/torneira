@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Identificação - CalouroSimulator3000</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./images/favi.png" type="image/png" />
+  <style>
+    .erro {
+      color: red;
+      font-size: 0.9em;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="identificacao-form">
+      <label for="nome">Nome:</label><br/>
+      <input type="text" id="nome" name="nome" required/><br/><br/>
+
+      <label for="matricula">Matrícula:</label><br/>
+      <input type="text" id="matricula" name="matricula" maxlength="9" required/><br/>
+      <span class="erro" id="erro-matricula">Digite até 9 dígitos numéricos.</span><br/><br/>
+
+      <button type="submit" class="start-btn">Prosseguir</button>
+    </form>
+  </div>
+
+  <script>
+    const inputMatricula = document.getElementById('matricula');
+    const erroMatricula = document.getElementById('erro-matricula');
+
+    // Limita ao digitar: só números, até 9 dígitos
+    inputMatricula.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 9);
+      erroMatricula.style.display = 'none';
+    });
+
+    document.getElementById('identificacao-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nome').value.trim();
+      const matricula = inputMatricula.value.trim();
+
+      if (matricula.length === 0 || matricula.length > 9) {
+        erroMatricula.style.display = 'inline';
+        return;
+      }
+
+      localStorage.setItem('nome', nome);
+      localStorage.setItem('matricula', matricula);
+
+      window.location.href = 'questionario.html';
+    });
+  </script>
+</body>
+</html>
