@@ -25,13 +25,20 @@ function analisarRespostas(respostas) {
         'j': 'Davi Brito',
         'k': 'Gabriella K',
         'l': 'HotWillis',
-        'm': 'Valquíria'
+        'm': 'Valquíria',
+        'n': 'Samara',
+        'o': 'Gabriela',
+        'p':'Gustavo Ávila',
     };
 
     let escolhidos = new Set();
     for (let pergunta in respostas) {
-        if (respostas[pergunta] && correspondencia[respostas[pergunta]]) {
-            escolhidos.add(correspondencia[respostas[pergunta]]);
+        if (respostas[pergunta]) {
+            let valores = respostas[pergunta].split(',');
+            valores.forEach(v => {
+                const pessoa = correspondencia[v.trim()];
+                if (pessoa) escolhidos.add(pessoa);
+            });
         }
     }
 

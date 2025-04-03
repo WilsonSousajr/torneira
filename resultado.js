@@ -20,6 +20,9 @@ function exibirResultado(pessoas) {
         'Gabriella K': './images/11.jpeg',
         'HotWillis': './images/12.jpg',
         'Valquíria': './images/13.jpeg',
+        'Samara': './images/14.jpg',
+        'Gabriela': './images/15.jpg',
+        'Gustavo Ávila': './images/16.jpg',
     };
 
     const resultadoDiv = document.getElementById('resultado');
