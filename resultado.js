@@ -24,6 +24,8 @@ function exibirResultado(pessoas) {
         'Samara': './images/14.jpg',
         'Gabriela': './images/15.jpg',
         'Gustavo Ávila': './images/16.jpg',
+        'Luisa': './images/17.jpeg',
+        'Gustavo Ramos': './images/18.png',
     };
 
     const resultadoDiv = document.getElementById('resultado');
