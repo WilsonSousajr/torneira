@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const resultado = JSON.parse(localStorage.getItem('resultado'));
-    if (resultado) {
+    if (resultado && resultado.pessoas) {
         exibirResultado(resultado.pessoas);
+        salvarResultado(resultado.pessoas);
     }
 });
 
@@ -10,7 +11,7 @@ function exibirResultado(pessoas) {
         'Luísa Barros': './images/1.jpeg',
         'Danilo Alves Ribeiro': './images/2.jpg',
         'Lucca': './images/3.JPG',
-        'Natália':'./images/5.jpg',
+        'Natália': './images/5.jpg',
         'Kenji': './images/4.jpg',
         'Lázaro': './images/6.jpg',
         'Sill': './images/7.jpeg',
