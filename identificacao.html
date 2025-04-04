@@ -6,23 +6,19 @@
   <title>Identificação - CalouroSimulator3000</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="./images/favi.png" type="image/png" />
-  <style>
-    .erro {
-      color: red;
-      font-size: 0.9em;
-      display: none;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
+    <h1>Identificação do Calouro</h1>
     <form id="identificacao-form">
-      <label for="nome">Nome:</label><br/>
-      <input type="text" id="nome" name="nome" required/><br/><br/>
+      <div class="form-group">
+        <input type="text" id="nome" name="Nome" placeholder="Nome" required />
+      </div>
 
-      <label for="matricula">Matrícula:</label><br/>
-      <input type="text" id="matricula" name="matricula" maxlength="9" required/><br/>
-      <span class="erro" id="erro-matricula">Digite até 9 dígitos numéricos.</span><br/><br/>
+      <div class="form-group">
+        <input type="text" id="matricula" name="Matricula" maxlength="9" placeholder="Matrícula" required />
+        <span class="erro" id="erro-matricula">Digite até 9 dígitos numéricos.</span>
+      </div>
 
       <button type="submit" class="start-btn">Prosseguir</button>
     </form>
@@ -32,7 +28,6 @@
     const inputMatricula = document.getElementById('matricula');
     const erroMatricula = document.getElementById('erro-matricula');
 
-    // Limita ao digitar: só números, até 9 dígitos
     inputMatricula.addEventListener('input', function () {
       this.value = this.value.replace(/\D/g, '').slice(0, 9);
       erroMatricula.style.display = 'none';

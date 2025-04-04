@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         exibirResultado(resultado.pessoas);
         salvarResultado(resultado.pessoas);
     } else {
-        console.warn("Nenhum resultado encontrado no localStorage.");
+        console.warn("⚠️ Nenhum resultado encontrado no localStorage.");
     }
 });
 
@@ -47,21 +47,24 @@ function salvarResultado(pessoas) {
     const matricula = localStorage.getItem('matricula') || "Não informado";
 
     const dados = {
-        nome,
-        matricula,
-        pessoas
+        nome: nome,
+        matricula: matricula,
+        padrinhos: pessoas.join(", ")
     };
 
-    console.log("Enviando dados para Google Sheets:", dados);
+    console.log("📤 Enviando dados para Supabase:", dados);
 
-    fetch("https://script.google.com/macros/s/AKfycby7RJot_UhRSwnNiDlEM9bID9HXB8XQH1Lba-mB7ntDEjpLd2S8KZfHgMNFc52KfF4l/exec", {
+    fetch("https://atvifupwwlmlvczqcgeu.supabase.co/rest/v1/respostas", {
         method: "POST",
-        body: JSON.stringify(dados),
         headers: {
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/json",
+            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0dmlmdXB3d2xtbHZjenFjZ2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3MjE3ODEsImV4cCI6MjA1OTI5Nzc4MX0.X0U2_XpBy7faQiwt35WoucJhb3vqJwkFgMkZ7LwMG44",
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF0dmlmdXB3d2xtbHZjenFjZ2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3MjE3ODEsImV4cCI6MjA1OTI5Nzc4MX0.X0U2_XpBy7faQiwt35WoucJhb3vqJwkFgMkZ7LwMG44",
+            "Prefer": "return=representation"
+        },
+        body: JSON.stringify(dados)
     })
-    .then(response => response.text())
-    .then(msg => console.log("Resposta do Google Sheets:", msg))
-    .catch(err => console.error("Erro ao salvar resultado:", err));
+    .then(res => res.json())
+    .then(res => console.log("✅ Dados salvos no Supabase:", res))
+    .catch(err => console.error("❌ Erro ao salvar no Supabase:", err));
 }

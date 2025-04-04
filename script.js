@@ -58,7 +58,7 @@ const perguntas = [
             { valor: 2, texto: "Coup" },
             { valor: 3, texto: "Minecraft" },
             { valor: 4, texto: "Rainbow Six Siege" },
-            { valor: 5, texto: "lolzin" },
+            { valor: "5, 15", texto: "lolzin" },
             { valor: 6, texto: "Hollow Knight" },
             { valor: 7, texto: "Rhythm Heaven Megamix do 3DS" },
             { valor: 8, texto: "Portal 2" },
