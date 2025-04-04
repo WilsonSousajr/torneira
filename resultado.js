@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         exibirResultado(resultado.pessoas);
         salvarResultado(resultado.pessoas);
     } else {
-        console.warn("⚠️ Nenhum resultado encontrado no localStorage.");
+        console.warn("Nenhum resultado encontrado no localStorage.");
     }
 });
 
@@ -19,7 +19,7 @@ function exibirResultado(pessoas) {
         'Lázaro': './images/6.jpg',
         'Sill': './images/7.jpeg',
         'João Luz': './images/8.jpg',
-        'Henrique': './images/9.jpg',
+        'Henrique': './images/9.JPG',
         'Davi Brito': './images/DaviBrito.jpg',
         'Gabriella K': './images/11.jpeg',
         'HotWillis': './images/12.jpg',
@@ -29,6 +29,9 @@ function exibirResultado(pessoas) {
         'Gustavo Ávila': './images/16.jpg',
         'Luisa': './images/17.jpeg',
         'Gustavo Ramos': './images/18.png',
+        'Pedro Braga': './images/19.jpg',
+        'Arthur': './images/20.jpeg',
+        'Marcel (O Cruel)': './images/21.png',
     };
 
     const resultadoDiv = document.getElementById('resultado');
@@ -52,7 +55,7 @@ function salvarResultado(pessoas) {
         padrinhos: pessoas.join(", ")
     };
 
-    console.log("📤 Enviando dados para Supabase:", dados);
+    console.log("Enviando dados para Supabase:", dados);
 
     fetch("https://atvifupwwlmlvczqcgeu.supabase.co/rest/v1/respostas", {
         method: "POST",
@@ -65,6 +68,6 @@ function salvarResultado(pessoas) {
         body: JSON.stringify(dados)
     })
     .then(res => res.json())
-    .then(res => console.log("✅ Dados salvos no Supabase:", res))
-    .catch(err => console.error("❌ Erro ao salvar no Supabase:", err));
+    .then(res => console.log("Dados salvos no Supabase:", res))
+    .catch(err => console.error("Erro ao salvar no Supabase:", err));
 }
