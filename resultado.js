@@ -20,7 +20,7 @@ function exibirResultado(pessoas) {
         'Sill': './images/7.jpeg',
         'João Luz': './images/8.jpg',
         'Henrique': './images/9.JPG',
-        'Davi Brito': './images/DaviBrito.jpg',
+        'Davi Brito': './images/DaviBrito.png',
         'Gabriella K': './images/11.jpeg',
         'HotWillis': './images/12.jpg',
         'Valquíria': './images/13.jpeg',
