@@ -17,7 +17,7 @@
 
       <div class="form-group">
         <input type="text" id="matricula" name="Matricula" maxlength="9" placeholder="Matrícula" required />
-        <span class="erro" id="erro-matricula">Digite até 9 dígitos numéricos.</span>
+        <span class="erro" id="erro-matricula">Digite os 9 dígitos numéricos da sua matrícula.</span>
       </div>
 
       <button type="submit" class="start-btn">Prosseguir</button>
@@ -39,7 +39,7 @@
       const nome = document.getElementById('nome').value.trim();
       const matricula = inputMatricula.value.trim();
 
-      if (matricula.length === 0 || matricula.length > 9) {
+      if (!/^\d{9}$/.test(matricula)) {
         erroMatricula.style.display = 'inline';
         return;
       }
